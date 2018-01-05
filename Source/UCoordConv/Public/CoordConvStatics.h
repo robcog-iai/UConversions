@@ -34,7 +34,7 @@ struct FCoordConvStatics
 	// FVector by value
 	static FORCEINLINE FVector UToROS(const FVector InVector)
 	{
-		return FVector(InVector.X, - InVector.Y, InVector.Z);
+		return FVector(InVector.X * 0.01f, - InVector.Y * 0.01f, InVector.Z * 0.01f);
 	}
 	
 	// FTransform by reference
@@ -81,7 +81,7 @@ struct FCoordConvStatics
 	// FVector by value
 	static FORCEINLINE FVector ROSToU(const FVector InVector)
 	{
-		return FVector(InVector.X, -InVector.Y, InVector.Z);
+		return FVector(InVector.X * 0.01f, -InVector.Y * 0.01f, InVector.Z * 0.01f);
 	}
 
 	// FTransform by reference
@@ -132,7 +132,7 @@ struct FCoordConvStatics
 	static FORCEINLINE FVector UToROSCamera(const FVector InVector)
 	{
 		// todo
-		return FVector(InVector.X, -InVector.Y, InVector.Z);
+		return FVector(InVector.X * 0.01f, -InVector.Y * 0.01f, InVector.Z * 0.01f);
 	}
 
 	// FTransform by reference
@@ -185,7 +185,7 @@ struct FCoordConvStatics
 	static FORCEINLINE FVector ROSCameraToU(const FVector InVector)
 	{
 		// todo
-		return FVector(InVector.X, -InVector.Y, InVector.Z);
+		return FVector(InVector.X * 0.01f, -InVector.Y * 0.01f, InVector.Z * 0.01f);
 	}
 
 	// FTransform by reference
