@@ -20,19 +20,21 @@ struct FCoordConvStatics
 	 */
 	
 	// FTransform by value
-	static FORCEINLINE FTransform UToROS(const FTransform InTransform)
+	static FORCEINLINE FTransform UToROS(const FTransform& InTransform)
 	{
 		return FTransform(UToROS(InTransform.GetRotation()), UToROS(InTransform.GetLocation()));
 	}
 	
 	// FQuat by value
-	static FORCEINLINE FQuat UToROS(const FQuat InQuat)
+	static FORCEINLINE FQuat UToROS(const FQuat& InQuat)
 	{
-		return FQuat(- InQuat.X, InQuat.Y, InQuat.Z, - InQuat.W);
+		// todo
+		//return FQuat(- InQuat.X, InQuat.Y, InQuat.Z, - InQuat.W);
+		return InQuat;
 	}
 	
 	// FVector by value
-	static FORCEINLINE FVector UToROS(const FVector InVector)
+	static FORCEINLINE FVector UToROS(const FVector& InVector)
 	{
 		return FVector(InVector.X * 0.01f, - InVector.Y * 0.01f, InVector.Z * 0.01f);
 	}
@@ -67,19 +69,19 @@ struct FCoordConvStatics
 	*/
 
 	// FTransform by value
-	static FORCEINLINE FTransform ROSToU(const FTransform InTransform)
+	static FORCEINLINE FTransform ROSToU(const FTransform& InTransform)
 	{
 		return FTransform(ROSToU(InTransform.GetRotation()), ROSToU(InTransform.GetLocation()));
 	}
 
 	// FQuat by value
-	static FORCEINLINE FQuat ROSToU(const FQuat InQuat)
+	static FORCEINLINE FQuat ROSToU(const FQuat& InQuat)
 	{
 		return FQuat(-InQuat.X, InQuat.Y, InQuat.Z, -InQuat.W);
 	}
 
 	// FVector by value
-	static FORCEINLINE FVector ROSToU(const FVector InVector)
+	static FORCEINLINE FVector ROSToU(const FVector& InVector)
 	{
 		return FVector(InVector.X * 0.01f, -InVector.Y * 0.01f, InVector.Z * 0.01f);
 	}
@@ -115,21 +117,21 @@ struct FCoordConvStatics
 	 */
 	
 	 // FTransform by value
-	static FORCEINLINE FTransform UToROSCamera(const FTransform InTransform)
+	static FORCEINLINE FTransform UToROSCamera(const FTransform& InTransform)
 	{
 		// todo
 		return FTransform(UToROSCamera(InTransform.GetRotation()), UToROSCamera(InTransform.GetLocation()));
 	}
 
 	// FQuat by value
-	static FORCEINLINE FQuat UToROSCamera(const FQuat InQuat)
+	static FORCEINLINE FQuat UToROSCamera(const FQuat& InQuat)
 	{
 		// todo
 		return FQuat(-InQuat.X, InQuat.Y, InQuat.Z, -InQuat.W);
 	}
 
 	// FVector by value
-	static FORCEINLINE FVector UToROSCamera(const FVector InVector)
+	static FORCEINLINE FVector UToROSCamera(const FVector& InVector)
 	{
 		// todo
 		return FVector(InVector.X * 0.01f, -InVector.Y * 0.01f, InVector.Z * 0.01f);
@@ -168,21 +170,21 @@ struct FCoordConvStatics
 	*/
 
 	// FTransform by value
-	static FORCEINLINE FTransform ROSCameraToU(const FTransform InTransform)
+	static FORCEINLINE FTransform ROSCameraToU(const FTransform& InTransform)
 	{
 		// todo
 		return FTransform(ROSCameraToU(InTransform.GetRotation()), ROSCameraToU(InTransform.GetLocation()));
 	}
 
 	// FQuat by value
-	static FORCEINLINE FQuat ROSCameraToU(const FQuat InQuat)
+	static FORCEINLINE FQuat ROSCameraToU(const FQuat& InQuat)
 	{
 		// todo
 		return FQuat(-InQuat.X, InQuat.Y, InQuat.Z, -InQuat.W);
 	}
 
 	// FVector by value
-	static FORCEINLINE FVector ROSCameraToU(const FVector InVector)
+	static FORCEINLINE FVector ROSCameraToU(const FVector& InVector)
 	{
 		// todo
 		return FVector(InVector.X * 0.01f, -InVector.Y * 0.01f, InVector.Z * 0.01f);
