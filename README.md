@@ -1,11 +1,11 @@
 UCoordConv
 =====
 
-Coordinate (left/right hand, camera) conversions from and to Unreal.
+Unit and coordinate conversions conversions from and to Unreal.
 
 ## Usage
 
--   Add the plugin to your project (e.g `MyProject/Plugins/UCoordConv`)  
+-   Add the plugin to your project (e.g `MyProject/Plugins/UConversions`)  
     
 
 -   Add the module dependency to your module (Project, Plugin); In the
@@ -15,21 +15,21 @@ Coordinate (left/right hand, camera) conversions from and to Unreal.
 		new string[]  
 		{  
 		...  
-		"UCoordConv",  
+		"UConversions",  
 		...  
 		}  
 		);  
     
 
--   Include `CoordConvStatics.h` where you plan to use the functions.
+-   Include `ConversionsStatics.h` where you plan to use the functions.
 
 ## Example
 
 ```cpp
 	// Unreal to ROS conversion
-	FTransform ROSTransf = FCoordConvStatics::UToROS(InUTransform);
+	FTransform ROSTransf = FConversions::UToROS(InUTransform);
 ```
 
 
 
-### Engine Version 4.18
+### Engine Version 4.19
