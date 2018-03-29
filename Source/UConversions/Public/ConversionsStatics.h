@@ -6,10 +6,46 @@
 #include "EngineUtils.h"
 
 /**
-* Coordinate conversion helper functions
+* Unit and coordinate conversion helper functions
 */
 struct FConversionsStatics
 {
+	/**********************************************
+	*             Unit conversions
+	**********************************************/
+
+	// Conversion by value
+	template <class T>
+	static FORCEINLINE T CmToM(const T& In)
+	{
+		return In * 100.f;
+	}
+
+	// Conversion by reference
+	template <class T>
+	static FORCEINLINE void CmToM(T& Out)
+	{
+		Out *= 100.f;
+	}
+
+	// Conversion by value
+	template <class T>
+	static FORCEINLINE T MToCm(const T& In)
+	{
+		return In * 0.01f;
+	}
+
+	// Conversion by reference
+	template <class T>
+	static FORCEINLINE void MToCm(T& Out)
+	{
+		Out *= 0.01f;
+	}
+
+	/**********************************************
+	*          Coordinate conversions
+	**********************************************/
+
 	/** 
 	 * Convert 
 	 * Unreal's 'Z up', 'X forward', 'Y right' 'left handed' coordinate system

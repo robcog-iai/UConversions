@@ -3,6 +3,16 @@
 
 #include "ConversionsStatics.h"
 
+/**********************************************
+*             Unit conversions
+**********************************************/
+
+
+
+/**********************************************
+*          Coordinate conversions
+**********************************************/
+
 // FTransform by value
 FORCEINLINE FTransform FConversionsStatics::UToROS(const FTransform& InTransform)
 {
@@ -20,7 +30,7 @@ FORCEINLINE FQuat FConversionsStatics::UToROS(const FQuat& InQuat)
 // FVector by value
 FORCEINLINE FVector FConversionsStatics::UToROS(const FVector& InVector)
 {
-	return FVector(InVector.X * 0.01f, - InVector.Y * 0.01f, InVector.Z * 0.01f);
+	return CmToM(FVector(InVector.X, - InVector.Y, InVector.Z));
 }
 	
 // FTransform by reference
@@ -67,7 +77,7 @@ FORCEINLINE FQuat FConversionsStatics::ROSToU(const FQuat& InQuat)
 // FVector by value
 FORCEINLINE FVector FConversionsStatics::ROSToU(const FVector& InVector)
 {
-	return FVector(InVector.X * 0.01f, -InVector.Y * 0.01f, InVector.Z * 0.01f);
+	return MToCm(FVector(InVector.X, -InVector.Y, InVector.Z));
 }
 
 // FTransform by reference
