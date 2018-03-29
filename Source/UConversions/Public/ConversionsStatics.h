@@ -18,28 +18,28 @@ struct FConversionsStatics
 	template <class T>
 	static FORCEINLINE T CmToM(const T& In)
 	{
-		return In * 100.f;
+		return In * 0.01f;
 	}
 
 	// Conversion by reference
 	template <class T>
 	static FORCEINLINE void CmToM(T& Out)
 	{
-		Out *= 100.f;
+		Out *= 0.01f;
 	}
 
 	// Conversion by value
 	template <class T>
 	static FORCEINLINE T MToCm(const T& In)
 	{
-		return In * 0.01f;
+		return In * 100.f;
 	}
 
 	// Conversion by reference
 	template <class T>
 	static FORCEINLINE void MToCm(T& Out)
 	{
-		Out *= 0.01f;
+		Out *= 100.f;
 	}
 
 	/**********************************************
