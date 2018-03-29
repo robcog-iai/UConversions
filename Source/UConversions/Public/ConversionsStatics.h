@@ -56,22 +56,46 @@ struct FConversionsStatics
 	 */
 	
 	// FTransform by value
-	static FORCEINLINE FTransform UToROS(const FTransform& InTransform);
+	static FORCEINLINE FTransform UToROS(const FTransform& InTransform)
+	{
+		return FTransform(UToROS(InTransform.GetRotation()), UToROS(InTransform.GetLocation()));
+	}
 	
 	// FQuat by value
-	static FORCEINLINE FQuat UToROS(const FQuat& InQuat);
+	static FORCEINLINE FQuat UToROS(const FQuat& InQuat)
+	{
+		// TODO
+		//return FQuat(- InQuat.X, InQuat.Y, InQuat.Z, - InQuat.W);
+		return InQuat;
+	}
 	
 	// FVector by value
-	static FORCEINLINE FVector UToROS(const FVector& InVector);
-	
+	static FORCEINLINE FVector UToROS(const FVector& InVector)
+	{
+		return CmToM(FVector(InVector.X, -InVector.Y, InVector.Z));
+	}
+
+
 	// FTransform by reference
-	static FORCEINLINE void UToROS(FTransform& OutTransform);
+	static FORCEINLINE void UToROS(FTransform& OutTransform)
+	{
+		OutTransform.SetRotation(UToROS(OutTransform.GetRotation()));
+		OutTransform.SetLocation(UToROS(OutTransform.GetLocation()));
+	}
 	
 	// FQuat by reference
-	static FORCEINLINE void UToROS(FQuat& OutQuat);
+	static FORCEINLINE void UToROS(FQuat& OutQuat)
+	{
+		OutQuat.X *= -1;
+		OutQuat.W *= -1;
+	}
 
 	// FVector by reference
-	static FORCEINLINE void UToROS(FVector& OutVector);
+	static FORCEINLINE void UToROS(FVector& OutVector)
+	{
+		OutVector.Y *= -1;
+		CmToM(OutVector);
+	}
 	
 	/**
 	* Convert
@@ -83,22 +107,43 @@ struct FConversionsStatics
 	*/
 
 	// FTransform by value
-	static FORCEINLINE FTransform ROSToU(const FTransform& InTransform);
+	static FORCEINLINE FTransform ROSToU(const FTransform& InTransform)
+	{
+		return FTransform(ROSToU(InTransform.GetRotation()), ROSToU(InTransform.GetLocation()));
+	}
 
 	// FQuat by value
-	static FORCEINLINE FQuat ROSToU(const FQuat& InQuat);
+	static FORCEINLINE FQuat ROSToU(const FQuat& InQuat)
+	{
+		return FQuat(-InQuat.X, InQuat.Y, InQuat.Z, -InQuat.W);
+	}
 
 	// FVector by value
-	static FORCEINLINE FVector ROSToU(const FVector& InVector);
+	static FORCEINLINE FVector ROSToU(const FVector& InVector)
+	{
+		return MToCm(FVector(InVector.X, -InVector.Y, InVector.Z));
+	}
 
 	// FTransform by reference
-	static FORCEINLINE void ROSToU(FTransform& OutTransform);
+	static FORCEINLINE void ROSToU(FTransform& OutTransform)
+	{
+		OutTransform.SetRotation(ROSToU(OutTransform.GetRotation()));
+		OutTransform.SetLocation(ROSToU(OutTransform.GetLocation()));
+	}
 
 	// FQuat by reference
-	static FORCEINLINE void ROSToU(FQuat& OutQuat);
+	static FORCEINLINE void ROSToU(FQuat& OutQuat)
+	{
+		OutQuat.X *= -1;
+		OutQuat.W *= -1;
+	}
 
 	// FVector by reference
-	static FORCEINLINE void ROSToU(FVector& OutVector);
+	static FORCEINLINE void ROSToU(FVector& OutVector)
+	{
+		OutVector.Y *= -1;
+		MToCm(OutVector);
+	}
 
 
 	/** 
@@ -111,22 +156,49 @@ struct FConversionsStatics
 	 */
 	
 	 // FTransform by value
-	static FORCEINLINE FTransform UToROSCamera(const FTransform& InTransform);
+	static FORCEINLINE FTransform UToROSCamera(const FTransform& InTransform)
+	{
+		// TODO, dummy
+		return FTransform(UToROSCamera(InTransform.GetRotation()), UToROSCamera(InTransform.GetLocation()));
+
+	}
 
 	// FQuat by value
-	static FORCEINLINE FQuat UToROSCamera(const FQuat& InQuat);
+	static FORCEINLINE FQuat UToROSCamera(const FQuat& InQuat)
+	{
+		// TODO, dummy
+		return FQuat(-InQuat.X, InQuat.Y, InQuat.Z, -InQuat.W);
+	}
 
 	// FVector by value
-	static FORCEINLINE FVector UToROSCamera(const FVector& InVector);
+	static FORCEINLINE FVector UToROSCamera(const FVector& InVector)
+	{
+		// TODO
+		return CmToM(FVector(InVector.X, -InVector.Y, InVector.Z));
+	}
 
 	// FTransform by reference
-	static FORCEINLINE void UToROSCamera(FTransform& OutTransform);
+	static FORCEINLINE void UToROSCamera(FTransform& OutTransform)
+	{
+		// TODO
+		OutTransform.SetRotation(UToROSCamera(OutTransform.GetRotation()));
+		OutTransform.SetLocation(UToROSCamera(OutTransform.GetLocation()));
+	}
 
 	// FQuat by reference
-	static FORCEINLINE void UToROSCamera(FQuat& OutQuat);
+	static FORCEINLINE void UToROSCamera(FQuat& OutQuat)
+	{
+		// TODO
+		OutQuat.X *= -1;
+		OutQuat.W *= -1;
+	}
 
 	// FVector by reference
-	static FORCEINLINE void UToROSCamera(FVector& OutVector);
+	static FORCEINLINE void UToROSCamera(FVector& OutVector)
+	{
+		OutVector.Y *= -1;
+		MToCm(OutVector);
+	}
 
 	/**
 	* Convert
@@ -138,20 +210,46 @@ struct FConversionsStatics
 	*/
 
 	// FTransform by value
-	static FORCEINLINE FTransform ROSCameraToU(const FTransform& InTransform);
+	static FORCEINLINE FTransform ROSCameraToU(const FTransform& InTransform)
+	{
+		// TODO, dummy
+		return FTransform(ROSCameraToU(InTransform.GetRotation()), ROSCameraToU(InTransform.GetLocation()));
+	}
 
 	// FQuat by value
-	static FORCEINLINE FQuat ROSCameraToU(const FQuat& InQuat);
+	static FORCEINLINE FQuat ROSCameraToU(const FQuat& InQuat)
+	{
+		// TODO, dummy
+		return FQuat(-InQuat.X, InQuat.Y, InQuat.Z, -InQuat.W);
+	}
 
 	// FVector by value
-	static FORCEINLINE FVector ROSCameraToU(const FVector& InVector);
+	static FORCEINLINE FVector ROSCameraToU(const FVector& InVector)
+	{
+		// TODO, dummy
+		return MToCm(FVector(InVector.X, -InVector.Y, InVector.Z));
+	}
 
 	// FTransform by reference
-	static FORCEINLINE void ROSCameraToU(FTransform& OutTransform);
+	static FORCEINLINE void ROSCameraToU(FTransform& OutTransform)
+	{
+		// TODO, dummy
+		OutTransform.SetRotation(ROSCameraToU(OutTransform.GetRotation()));
+		OutTransform.SetLocation(ROSCameraToU(OutTransform.GetLocation()));
+	}
 
 	// FQuat by reference
-	static FORCEINLINE void ROSCameraToU(FQuat& OutQuat);
+	static FORCEINLINE void ROSCameraToU(FQuat& OutQuat)
+	{
+		// TODO, dummy
+		OutQuat.X *= -1;
+		OutQuat.W *= -1;
+	}
 
 	// FVector by reference
-	static FORCEINLINE void ROSCameraToU(FVector& OutVector);
+	static FORCEINLINE void ROSCameraToU(FVector& OutVector)
+	{
+		OutVector.Y *= -1;
+		MToCm(OutVector);
+	}
 };
