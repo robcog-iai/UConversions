@@ -1,4 +1,4 @@
-// Copyright 2017, Institute for Artificial Intelligence - University of Bremen
+// Copyright 2018, Institute for Artificial Intelligence - University of Bremen
 // Author: Andrei Haidu (http://haidu.eu)
 
 #pragma once
@@ -8,7 +8,7 @@
 /**
 * Coordinate conversion helper functions
 */
-struct FCoordConvStatics
+struct FConversionsStatics
 {
 	/** 
 	 * Convert 

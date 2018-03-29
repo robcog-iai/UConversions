@@ -1,17 +1,17 @@
-// Copyright 2017, Institute for Artificial Intelligence - University of Bremen
+// Copyright 2018, Institute for Artificial Intelligence - University of Bremen
 // Author: Andrei Haidu (http://haidu.eu)
 
 using UnrealBuildTool;
 
-public class UCoordConv : ModuleRules
+public class UConversions : ModuleRules
 {
-	public UCoordConv(ReadOnlyTargetRules Target) : base(Target)
+	public UConversions(ReadOnlyTargetRules Target) : base(Target)
 	{
 		PCHUsage = ModuleRules.PCHUsageMode.UseExplicitOrSharedPCHs;
 		
 		PublicIncludePaths.AddRange(
 			new string[] {
-				"UCoordConv/Public"
+				"UConversions/Public"
 				// ... add public include paths required here ...
 			}
 			);
@@ -19,7 +19,7 @@ public class UCoordConv : ModuleRules
 		
 		PrivateIncludePaths.AddRange(
 			new string[] {
-				"UCoordConv/Private",
+				"UConversions/Private",
 				// ... add other private include paths required here ...
 			}
 			);

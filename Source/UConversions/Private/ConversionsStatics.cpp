@@ -1,16 +1,16 @@
-// Copyright 2017, Institute for Artificial Intelligence - University of Bremen
+// Copyright 2018, Institute for Artificial Intelligence - University of Bremen
 // Author: Andrei Haidu (http://haidu.eu)
 
-#include "CoordConvStatics.h"
+#include "ConversionsStatics.h"
 
 // FTransform by value
-FORCEINLINE FTransform FCoordConvStatics::UToROS(const FTransform& InTransform)
+FORCEINLINE FTransform FConversionsStatics::UToROS(const FTransform& InTransform)
 {
 	return FTransform(UToROS(InTransform.GetRotation()), UToROS(InTransform.GetLocation()));
 }
 	
 // FQuat by value
-FORCEINLINE FQuat FCoordConvStatics::UToROS(const FQuat& InQuat)
+FORCEINLINE FQuat FConversionsStatics::UToROS(const FQuat& InQuat)
 {
 	// todo
 	//return FQuat(- InQuat.X, InQuat.Y, InQuat.Z, - InQuat.W);
@@ -18,27 +18,27 @@ FORCEINLINE FQuat FCoordConvStatics::UToROS(const FQuat& InQuat)
 }
 	
 // FVector by value
-FORCEINLINE FVector FCoordConvStatics::UToROS(const FVector& InVector)
+FORCEINLINE FVector FConversionsStatics::UToROS(const FVector& InVector)
 {
 	return FVector(InVector.X * 0.01f, - InVector.Y * 0.01f, InVector.Z * 0.01f);
 }
 	
 // FTransform by reference
-FORCEINLINE void FCoordConvStatics::UToROS(FTransform& OutTransform)
+FORCEINLINE void FConversionsStatics::UToROS(FTransform& OutTransform)
 {
 	OutTransform.SetRotation(UToROS(OutTransform.GetRotation()));
 	OutTransform.SetLocation(UToROS(OutTransform.GetLocation()));		
 }
 	
 // FQuat by reference
-FORCEINLINE void FCoordConvStatics::UToROS(FQuat& OutQuat)
+FORCEINLINE void FConversionsStatics::UToROS(FQuat& OutQuat)
 {
 	OutQuat.X *= -1;
 	OutQuat.W *= -1;
 }
 
 // FVector by reference
-FORCEINLINE void FCoordConvStatics::UToROS(FVector& OutVector)
+FORCEINLINE void FConversionsStatics::UToROS(FVector& OutVector)
 {
 	OutVector.Y *= -1;
 }
@@ -53,39 +53,39 @@ FORCEINLINE void FCoordConvStatics::UToROS(FVector& OutVector)
 */
 
 // FTransform by value
-FORCEINLINE FTransform FCoordConvStatics::ROSToU(const FTransform& InTransform)
+FORCEINLINE FTransform FConversionsStatics::ROSToU(const FTransform& InTransform)
 {
 	return FTransform(ROSToU(InTransform.GetRotation()), ROSToU(InTransform.GetLocation()));
 }
 
 // FQuat by value
-FORCEINLINE FQuat FCoordConvStatics::ROSToU(const FQuat& InQuat)
+FORCEINLINE FQuat FConversionsStatics::ROSToU(const FQuat& InQuat)
 {
 	return FQuat(-InQuat.X, InQuat.Y, InQuat.Z, -InQuat.W);
 }
 
 // FVector by value
-FORCEINLINE FVector FCoordConvStatics::ROSToU(const FVector& InVector)
+FORCEINLINE FVector FConversionsStatics::ROSToU(const FVector& InVector)
 {
 	return FVector(InVector.X * 0.01f, -InVector.Y * 0.01f, InVector.Z * 0.01f);
 }
 
 // FTransform by reference
-FORCEINLINE void FCoordConvStatics::ROSToU(FTransform& OutTransform)
+FORCEINLINE void FConversionsStatics::ROSToU(FTransform& OutTransform)
 {
 	OutTransform.SetRotation(ROSToU(OutTransform.GetRotation()));
 	OutTransform.SetLocation(ROSToU(OutTransform.GetLocation()));
 }
 
 // FQuat by reference
-FORCEINLINE void FCoordConvStatics::ROSToU(FQuat& OutQuat)
+FORCEINLINE void FConversionsStatics::ROSToU(FQuat& OutQuat)
 {
 	OutQuat.X *= -1;
 	OutQuat.W *= -1;
 }
 
 // FVector by reference
-FORCEINLINE void FCoordConvStatics::ROSToU(FVector& OutVector)
+FORCEINLINE void FConversionsStatics::ROSToU(FVector& OutVector)
 {
 	OutVector.Y *= -1;
 }
@@ -101,28 +101,28 @@ FORCEINLINE void FCoordConvStatics::ROSToU(FVector& OutVector)
 	*/
 	
 	// FTransform by value
-FORCEINLINE FTransform FCoordConvStatics::UToROSCamera(const FTransform& InTransform)
+FORCEINLINE FTransform FConversionsStatics::UToROSCamera(const FTransform& InTransform)
 {
 	// todo
 	return FTransform(UToROSCamera(InTransform.GetRotation()), UToROSCamera(InTransform.GetLocation()));
 }
 
 // FQuat by value
-FORCEINLINE FQuat FCoordConvStatics::UToROSCamera(const FQuat& InQuat)
+FORCEINLINE FQuat FConversionsStatics::UToROSCamera(const FQuat& InQuat)
 {
 	// todo
 	return FQuat(-InQuat.X, InQuat.Y, InQuat.Z, -InQuat.W);
 }
 
 // FVector by value
-FORCEINLINE FVector FCoordConvStatics::UToROSCamera(const FVector& InVector)
+FORCEINLINE FVector FConversionsStatics::UToROSCamera(const FVector& InVector)
 {
 	// todo
 	return FVector(InVector.X * 0.01f, -InVector.Y * 0.01f, InVector.Z * 0.01f);
 }
 
 // FTransform by reference
-FORCEINLINE void FCoordConvStatics::UToROSCamera(FTransform& OutTransform)
+FORCEINLINE void FConversionsStatics::UToROSCamera(FTransform& OutTransform)
 {
 	// todo
 	OutTransform.SetRotation(UToROSCamera(OutTransform.GetRotation()));
@@ -130,7 +130,7 @@ FORCEINLINE void FCoordConvStatics::UToROSCamera(FTransform& OutTransform)
 }
 
 // FQuat by reference
-FORCEINLINE void FCoordConvStatics::UToROSCamera(FQuat& OutQuat)
+FORCEINLINE void FConversionsStatics::UToROSCamera(FQuat& OutQuat)
 {
 	// todo
 	OutQuat.X *= -1;
@@ -138,7 +138,7 @@ FORCEINLINE void FCoordConvStatics::UToROSCamera(FQuat& OutQuat)
 }
 
 // FVector by reference
-FORCEINLINE void FCoordConvStatics::UToROSCamera(FVector& OutVector)
+FORCEINLINE void FConversionsStatics::UToROSCamera(FVector& OutVector)
 {
 	// todo
 	OutVector.Y *= -1;
@@ -154,28 +154,28 @@ FORCEINLINE void FCoordConvStatics::UToROSCamera(FVector& OutVector)
 */
 
 // FTransform by value
-FORCEINLINE FTransform FCoordConvStatics::ROSCameraToU(const FTransform& InTransform)
+FORCEINLINE FTransform FConversionsStatics::ROSCameraToU(const FTransform& InTransform)
 {
 	// todo
 	return FTransform(ROSCameraToU(InTransform.GetRotation()), ROSCameraToU(InTransform.GetLocation()));
 }
 
 // FQuat by value
-FORCEINLINE FQuat FCoordConvStatics::ROSCameraToU(const FQuat& InQuat)
+FORCEINLINE FQuat FConversionsStatics::ROSCameraToU(const FQuat& InQuat)
 {
 	// todo
 	return FQuat(-InQuat.X, InQuat.Y, InQuat.Z, -InQuat.W);
 }
 
 // FVector by value
-FORCEINLINE FVector FCoordConvStatics::ROSCameraToU(const FVector& InVector)
+FORCEINLINE FVector FConversionsStatics::ROSCameraToU(const FVector& InVector)
 {
 	// todo
 	return FVector(InVector.X * 0.01f, -InVector.Y * 0.01f, InVector.Z * 0.01f);
 }
 
 // FTransform by reference
-FORCEINLINE void FCoordConvStatics::ROSCameraToU(FTransform& OutTransform)
+FORCEINLINE void FConversionsStatics::ROSCameraToU(FTransform& OutTransform)
 {
 	// todo
 	OutTransform.SetRotation(ROSCameraToU(OutTransform.GetRotation()));
@@ -183,7 +183,7 @@ FORCEINLINE void FCoordConvStatics::ROSCameraToU(FTransform& OutTransform)
 }
 
 // FQuat by reference
-FORCEINLINE void FCoordConvStatics::ROSCameraToU(FQuat& OutQuat)
+FORCEINLINE void FConversionsStatics::ROSCameraToU(FQuat& OutQuat)
 {
 	// todo
 	OutQuat.X *= -1;
@@ -191,7 +191,7 @@ FORCEINLINE void FCoordConvStatics::ROSCameraToU(FQuat& OutQuat)
 }
 
 // FVector by reference
-FORCEINLINE void FCoordConvStatics::ROSCameraToU(FVector& OutVector)
+FORCEINLINE void FConversionsStatics::ROSCameraToU(FVector& OutVector)
 {
 	// todo
 	OutVector.Y *= -1;

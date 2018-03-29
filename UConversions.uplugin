@@ -2,12 +2,12 @@
 	"FileVersion": 3,
 	"Version": 1,
 	"VersionName": "1.0",
-	"FriendlyName": "UCoordConv",
-	"Description": "Coordinate conversion from and to unreal",
+	"FriendlyName": "UConversions",
+	"Description": "Unit and coordinate conversion from and to Unreal",
 	"Category": "RobCoG",
 	"CreatedBy": "Andrei Haidu",
 	"CreatedByURL": "http://haidu.eu",
-	"DocsURL": "https://github.com/robcog-iai/UCoordConv",
+	"DocsURL": "https://github.com/robcog-iai/UConversions",
 	"MarketplaceURL": "",
 	"SupportURL": "http://robcog.org/",
 	"CanContainContent": true,
@@ -15,7 +15,7 @@
 	"Installed": false,
 	"Modules": [
 		{
-			"Name": "UCoordConv",
+			"Name": "UConversions",
 			"Type": "Developer",
 			"LoadingPhase": "Default"
 		}
